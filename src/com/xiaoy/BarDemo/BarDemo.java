@@ -53,14 +53,14 @@ public class BarDemo
 		 * urls					//是否生成URL	
 		 */
 		JFreeChart chart = ChartFactory.createBarChart3D(
-									  "用户统计报表（所属单位）",	//主标题，不能为空
-									  "所属单位",					//种类轴（x轴）
-									  "数量",					//值轴（y轴） 
-									  dataset,					//图表显示的数据集
-									  PlotOrientation.VERTICAL,//图形显示的定向（水平horizontal、垂直vertical） 
-									  true,						//是否显示子标题（图例） 
-									  true,						//是否显示提示工具					 
-									  true						//是否生成URL						
+				"用户统计报表（所属单位）",		//主标题，不能为空
+				"所属单位",					//种类轴（x轴）
+				"数量",						//值轴（y轴） 
+				dataset,					//图表显示的数据集
+				PlotOrientation.VERTICAL,	//图形显示的定向（水平horizontal、垂直vertical） 
+				true,						//是否显示子标题（图例） 
+				true,						//是否显示提示工具					 
+				true						//是否生成URL						
 									  );
 //1、处理乱码
 		//处理主标题
