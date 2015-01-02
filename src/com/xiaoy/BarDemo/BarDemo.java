@@ -1,9 +1,12 @@
 package com.xiaoy.BarDemo;
 
 import java.awt.Font;
+import java.io.File;
+import java.io.IOException;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
+import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.CategoryAxis3D;
 import org.jfree.chart.axis.NumberAxis3D;
@@ -18,7 +21,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
  * @author XiaoY
  *
  * @explain 
- * 饼状图	<br/>
+ * 条形图	<br/>
  * 1.JFreeChart对象	<br/>
  * 	处理主标题、子标题
  * 2.CategoryPlot图表区域对象	<br/>
@@ -31,7 +34,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
  */
 public class BarDemo
 {
-	public static void main(String[] args)
+	public static void main(String[] args) throws IOException
 	{
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
 		//value	值, rowKey	行值, columnKey	列值
@@ -103,8 +106,13 @@ public class BarDemo
 		barRenderer3D.setBaseItemLabelFont(new Font("宋体", Font.BOLD, 13));
 		
 		//使用ChartFrame对象显示图片
-		ChartFrame frame = new ChartFrame("xyz", chart);
-		frame.setVisible(true);
-		frame.pack();
+//		ChartFrame frame = new ChartFrame("xyz", chart);
+//		frame.setVisible(true);
+//		frame.pack();
+		
+		//生成图片
+		File file = new File("D:\\chartBarDemo.jpeg");
+		ChartUtilities.saveChartAsJPEG(file, chart, 800, 600);
+		System.out.println("图片生成完毕...");
 	}
 }

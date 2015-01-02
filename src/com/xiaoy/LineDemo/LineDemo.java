@@ -2,9 +2,12 @@ package com.xiaoy.LineDemo;
 
 import java.awt.Font;
 import java.awt.Rectangle;
+import java.io.File;
+import java.io.IOException;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
+import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.CategoryAxis;
 import org.jfree.chart.axis.NumberAxis;
@@ -24,7 +27,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
  */
 public class LineDemo
 {
-	public static void main(String[] args)
+	public static void main(String[] args) throws IOException
 	{
 		//数据集
 		DefaultCategoryDataset dataset = new DefaultCategoryDataset();
@@ -84,8 +87,14 @@ public class LineDemo
 		//设置可显	参数: 0 表示第一个，true:表示显示
 		line.setSeriesShapesVisible(0, true);
 		
-		ChartFrame chartFrame = new ChartFrame("kkth", chart);
-		chartFrame.setVisible(true);
-		chartFrame.pack();
+		//显示
+//		ChartFrame chartFrame = new ChartFrame("kkth", chart);
+//		chartFrame.setVisible(true);
+//		chartFrame.pack();
+		
+		//生成图片
+		File file = new File("D:\\chartLineDemo.jpeg");
+		ChartUtilities.saveChartAsJPEG(file, chart, 800, 600);
+		System.out.println("图片生成完毕...");
 	}
 }
